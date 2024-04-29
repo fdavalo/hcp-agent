@@ -1,7 +1,7 @@
 apiVersion: hypershift.openshift.io/v1beta1
 kind: HostedCluster
 metadata:
-  name: hcp02
+  name: {{ .Values.cluster.name }}
   namespace: hcp-config
 spec:
   fips: false
@@ -29,10 +29,10 @@ spec:
     serviceNetwork:
       - cidr: 172.31.0.0/16
   pullSecret:
-    name: pullsecret-hcp02
+    name: pullsecret-{{ .Values.cluster.name }}
   issuerURL: 'https://kubernetes.default.svc'
   sshKey:
-    name: sshkey-hcp02
+    name: sshkey-{{ .Values.cluster.name }}
   autoscaling: {}
   olmCatalogPlacement: management
   services:
