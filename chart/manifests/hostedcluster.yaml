@@ -1,0 +1,58 @@
+apiVersion: hypershift.openshift.io/v1beta1
+kind: HostedCluster
+metadata:
+  name: hcp02
+  namespace: hcp02
+spec:
+  fips: false
+  release:
+    image: 'quay.io/openshift-release-dev/ocp-release:4.13.40-multi'
+  dns:
+    baseDomain: redhat.hpecic.net
+  controllerAvailabilityPolicy: SingleReplica
+  infraID: hcp02
+  etcd:
+    managed:
+      storage:
+        persistentVolume:
+          size: 4Gi
+        type: PersistentVolume
+    managementType: Managed
+  infrastructureAvailabilityPolicy: SingleReplica
+  platform:
+    agent:
+      agentNamespace: baremetal
+    type: Agent
+  networking:
+    clusterNetwork:
+      - cidr: 10.132.0.0/14
+    networkType: OVNKubernetes
+    serviceNetwork:
+      - cidr: 172.31.0.0/16
+  clusterID: a1d01289-7c96-4b75-a126-1b776cde4492
+  pullSecret:
+    name: pullsecret-cluster-hcp02
+  issuerURL: 'https://kubernetes.default.svc'
+  sshKey:
+    name: sshkey-cluster-hcp02
+  autoscaling: {}
+  olmCatalogPlacement: management
+  services:
+    - service: APIServer
+      servicePublishingStrategy:
+        nodePort:
+          address: 10.6.82.220
+        type: NodePort
+    - service: OAuthServer
+      servicePublishingStrategy:
+        type: Route
+    - service: OIDC
+      servicePublishingStrategy:
+        type: Route
+    - service: Konnectivity
+      servicePublishingStrategy:
+        type: Route
+    - service: Ignition
+      servicePublishingStrategy:
+        type: Route
+
