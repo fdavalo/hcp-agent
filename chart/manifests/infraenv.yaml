@@ -8,7 +8,7 @@ metadata:
     networkType: dhcp
 spec:
   clusterRef:
-    name: hcp02
+    name: {{ .Values.cluster.name }}
     namespace: hcp-config
   agentLabels:
     agentclusterinstalls.extensions.hive.openshift.io/location: {{ .Values.cluster.name }}
