@@ -2,7 +2,7 @@ apiVersion: hypershift.openshift.io/v1alpha1
 kind: NodePool
 metadata:
   name: hcp02
-  namespace: hcp02-config
+  namespace: hcp-config
 spec:
   clusterName: hcp02
   replicas: 2
