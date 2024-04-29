@@ -2,7 +2,7 @@ apiVersion: hypershift.openshift.io/v1beta1
 kind: HostedCluster
 metadata:
   name: hcp02
-  namespace: hcp02
+  namespace: hcp02-config
 spec:
   fips: false
   release:
@@ -10,7 +10,6 @@ spec:
   dns:
     baseDomain: redhat.hpecic.net
   controllerAvailabilityPolicy: SingleReplica
-  infraID: hcp02
   etcd:
     managed:
       storage:
@@ -29,12 +28,11 @@ spec:
     networkType: OVNKubernetes
     serviceNetwork:
       - cidr: 172.31.0.0/16
-  clusterID: a1d01289-7c96-4b75-a126-1b776cde4492
   pullSecret:
-    name: pullsecret-cluster-hcp02
+    name: pullsecret-hcp02
   issuerURL: 'https://kubernetes.default.svc'
   sshKey:
-    name: sshkey-cluster-hcp02
+    name: sshkey-hcp02
   autoscaling: {}
   olmCatalogPlacement: management
   services:
