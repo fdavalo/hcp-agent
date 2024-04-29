@@ -1,0 +1,4 @@
+apiVersion: v1
+description: 'Hcp Agent'
+name: hcp-agent-provisioning
+version: 0.1.0
