@@ -13,6 +13,7 @@ spec:
     type: Agent
     agent:
       agentLabelSelector:
-        matchLabels: {}
+        matchLabels: 
+          agentclusterinstalls.extensions.hive.openshift.io/location: hcp02        
   release:
     image: quay.io/openshift-release-dev/ocp-release:4.13.40-multi
