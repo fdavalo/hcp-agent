@@ -2,15 +2,12 @@ apiVersion: cluster.open-cluster-management.io/v1
 kind: ManagedCluster
 metadata:
   name: {{ .Values.cluster.name }}
+  annotations:  
+    import.open-cluster-management.io/hosting-cluster-name: local-cluster
+    import.open-cluster-management.io/klusterlet-deploy-mode: Hosted
+    open-cluster-management/created-via: hypershift  
   labels:
     cloud: BareMetal
-    cluster.open-cluster-management.io/clusterset: default
-    feature.open-cluster-management.io/addon-application-manager: unreachable
-    feature.open-cluster-management.io/addon-cert-policy-controller: unreachable
-    feature.open-cluster-management.io/addon-cluster-proxy: unreachable
-    feature.open-cluster-management.io/addon-iam-policy-controller: unreachable
-    feature.open-cluster-management.io/addon-search-collector: unreachable
-    feature.open-cluster-management.io/addon-work-manager: unreachable
     name: {{ .Values.cluster.name }}
     vendor: OpenShift
 spec:
