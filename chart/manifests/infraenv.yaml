@@ -1,21 +1,21 @@
 apiVersion: agent-install.openshift.io/v1beta1
 kind: InfraEnv
 metadata:
-  name: hcp02
+  name: {{ .Values.cluster.name }}
   namespace: hcp-config
   labels:
-    agentclusterinstalls.extensions.hive.openshift.io/location: hcp02
+    agentclusterinstalls.extensions.hive.openshift.io/location: {{ .Values.cluster.name }}
     networkType: dhcp
 spec:
   clusterRef:
     name: hcp02
     namespace: hcp-config
   agentLabels:
-    agentclusterinstalls.extensions.hive.openshift.io/location: hcp02
+    agentclusterinstalls.extensions.hive.openshift.io/location: {{ .Values.cluster.name }}
   cpuArchitecture: x86_64
   nmStateConfigLabelSelector:
     matchLabels:
-      infraenvs.agent-install.openshift.io: hcp02
+      infraenvs.agent-install.openshift.io: {{ .Values.cluster.name }}
   pullSecretRef:
-    name: pullsecret-infraenv-hcp02
+    name: pullsecret-infraenv-{{ .Values.cluster.name }}
 
