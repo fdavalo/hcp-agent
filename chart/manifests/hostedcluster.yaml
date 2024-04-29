@@ -2,7 +2,7 @@ apiVersion: hypershift.openshift.io/v1beta1
 kind: HostedCluster
 metadata:
   name: hcp02
-  namespace: hcp02-config
+  namespace: hcp-config
 spec:
   fips: false
   release:
