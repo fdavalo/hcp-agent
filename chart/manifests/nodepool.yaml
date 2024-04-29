@@ -14,6 +14,6 @@ spec:
     agent:
       agentLabelSelector:
         matchLabels: 
-          agentclusterinstalls.extensions.hive.openshift.io/location: {{ .Values.cluster.name }}        
+          infraenvs.agent-install.openshift.io: {{ .Values.cluster.name }}        
   release:
     image: quay.io/openshift-release-dev/ocp-release:4.13.40-multi
