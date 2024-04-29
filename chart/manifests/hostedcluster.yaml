@@ -17,10 +17,10 @@ spec:
           size: 4Gi
         type: PersistentVolume
     managementType: Managed
-  infrastructureAvailabilityPolicy: SingleReplica
+  infrastructureAvailabilityPolicy: HighlyAvailable
   platform:
     agent:
-      agentNamespace: baremetal
+      agentNamespace: hcp-config
     type: Agent
   networking:
     clusterNetwork:
@@ -53,4 +53,3 @@ spec:
     - service: Ignition
       servicePublishingStrategy:
         type: Route
-
