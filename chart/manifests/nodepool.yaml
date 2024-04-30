@@ -1,6 +1,9 @@
 apiVersion: hypershift.openshift.io/v1alpha1
 kind: NodePool
 metadata:
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-4"    
   name: {{ .Values.cluster.name }}
   namespace: hcp-config
 spec:
