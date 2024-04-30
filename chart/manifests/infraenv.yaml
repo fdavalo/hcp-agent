@@ -1,6 +1,9 @@
 apiVersion: agent-install.openshift.io/v1beta1
 kind: InfraEnv
 metadata:
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-weight": "-5"    
   name: {{ .Values.cluster.name }}
   namespace: hcp-config
   labels:
