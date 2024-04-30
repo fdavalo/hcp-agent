@@ -16,7 +16,7 @@ spec:
     type: Agent
     agent:
       agentLabelSelector:
-        matchLabels: 
-          agentclusterinstalls.extensions.hive.openshift.io/location: {{ .Values.cluster.name }}       
+        matchExpressions:
+        - {key: 'agentclusterinstalls.extensions.hive.openshift.io/location', operator: In, values: [{{ .Values.cluster.name }}]}      
   release:
     image: quay.io/openshift-release-dev/ocp-release:4.13.40-multi
